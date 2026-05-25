@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AniMatch — Genre Mixer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+
+</head>
+<body>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <span class="ticker-content" id="ticker-text">
+      ★ GENRE MIXER ACTIVATED ★ PICK TWO GENRES ★ FIND YOUR PERFECT ANIME ★ POWERED BY JIKAN API ★ ANIMATCH v2.0 ★ MIX IT UP ★
+    </span>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Ani<span>Match</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="yearwise.html">Year Wise</a>
+      <a href="filler.html">Filler Check</a>
+      <a href="genres.html" class="active">Genre Mixer</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-eyebrow">// GENRE MIXER</div>
+    <h1>
+      MIX<br>
+      <span class="accent-red">YOUR</span><br>
+      <span class="accent-teal">GENRES</span>
+    </h1>
+    <p class="page-header-sub">
+      Pick two genres. Get anime that match <em>both</em>. Discover hidden crossovers you never knew existed.
+    </p>
+  </div>
+
+  <div class="main-container">
+
+    <!-- GENRE SELECTOR -->
+    <div class="genre-selector-section">
+      <div class="selector-grid">
+
+        <!-- GENRE 1 -->
+        <div class="genre-panel">
+          <div class="genre-panel-title red">Genre 1 — Primary</div>
+          <div class="genre-selected-display red empty" id="display-g1">PICK ONE</div>
+          <div class="genre-tags" id="tags-g1">
+            <!-- filled by JS -->
+          </div>
+        </div>
+
+        <!-- MIX BUTTON (middle column) -->
+        <div class="mix-column">
+          <div class="mix-connector">╋</div>
+          <button class="btn-mix" id="btn-mix" disabled onclick="doMix()">MIX</button>
+          <button class="btn-clear" onclick="clearSelections()">✕ CLEAR</button>
+        </div>
+
+        <!-- GENRE 2 -->
+        <div class="genre-panel">
+          <div class="genre-panel-title teal">Genre 2 — Secondary</div>
+          <div class="genre-selected-display teal empty" id="display-g2">PICK ONE</div>
+          <div class="genre-tags" id="tags-g2">
+            <!-- filled by JS -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- QUICK PRESETS -->
+    <div class="preset-section">
+      <div class="section-label">// LEGENDARY COMBOS</div>
+      <div class="preset-chips" id="preset-chips">
+        <!-- filled by JS -->
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="results-section" id="results-section">
+
+      <!-- WELCOME -->
+      <div class="welcome-state" id="welcome-state">
+        <div class="big-icon">⚡</div>
+        <h3>READY TO <span>MIX</span>?</h3>
+        <p>Select one genre from each panel above, then smash that MIX button. Or try a legendary combo below.</p>
+      </div>
+
+      <!-- LOADING -->
+      <div class="loading-state" id="loading-state">
+        <div class="loading-spinner"></div>
+        <div class="loading-label">Fetching matches from Jikan...</div>
+      </div>
+
+      <!-- EMPTY -->
+      <div class="empty-state" id="empty-state">
+        <div class="empty-state-icon">💀</div>
+        <h3>NO MATCHES FOUND</h3>
+        <p>That combo is too rare — even anime doesn't go there. Try a different pair of genres.</p>
+      </div>
+
+      <!-- RESULTS DISPLAY -->
+      <div id="results-display" style="display:none;">
+        <div class="results-header">
+          <div class="results-title">RESULTS</div>
+          <div class="results-count" id="results-count"></div>
+        </div>
+        <div class="results-combo-label" id="results-combo-label"></div>
+        <div class="cards-grid" id="cards-grid"></div>
+        <div class="load-more-wrap">
+          <button class="btn-load-more" id="btn-load-more" onclick="loadMore()">LOAD MORE</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- SIDE DECORATION -->
+  <div class="side-label">ANIMATCH · GENRE MIXER</div>
+
+  <script src="js/genres.js"></script>
+</body>
+</html>
