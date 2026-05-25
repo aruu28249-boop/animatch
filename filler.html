@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AniMatch — Filler Checker</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">ANI<span class="r">MA</span>TCH</div>
+    <div class="nav-right">
+      <div class="live-badge">● LIVE</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="yearwise.html">Years</a>
+        <a href="filler.html" class="active">Fillers</a>
+        <a href="genres.html">Mix</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="filler-hero">
+    <div class="eyebrow">// skip the garbage</div>
+    <h1>FILLER<br><span class="red">CHECKER</span></h1>
+    <p>Search any anime — see exactly which episodes are fillers so you never waste time again 💀</p>
+
+    <div class="search-bar filler-search">
+      <input type="text" id="filler-input" placeholder="e.g. Naruto, Bleach, One Piece...">
+      <button onclick="checkFiller()">CHECK →</button>
+    </div>
+
+    <!-- POPULAR SHORTCUTS -->
+    <div class="quick-picks">
+      <span class="quick-label">POPULAR:</span>
+      <div class="quick-btn" onclick="quickSearch('naruto')">Naruto</div>
+      <div class="quick-btn" onclick="quickSearch('bleach')">Bleach</div>
+      <div class="quick-btn" onclick="quickSearch('one-piece')">One Piece</div>
+      <div class="quick-btn" onclick="quickSearch('dragon-ball-z')">Dragon Ball Z</div>
+      <div class="quick-btn" onclick="quickSearch('boruto')">Boruto</div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="filler-results" id="filler-results" style="display:none;">
+
+    <!-- ANIME INFO BAR -->
+    <div class="anime-info-bar">
+      <img id="filler-poster" src="" alt="poster">
+      <div class="anime-info-text">
+        <div class="anime-info-title" id="filler-title">--</div>
+        <div class="anime-info-meta" id="filler-meta">--</div>
+      </div>
+    </div>
+
+    <!-- STATS ROW -->
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-num" id="stat-total">--</div>
+        <div class="stat-label">TOTAL EPS</div>
+      </div>
+      <div class="stat-box red-box">
+        <div class="stat-num red" id="stat-filler">--</div>
+        <div class="stat-label">FILLER EPS</div>
+      </div>
+      <div class="stat-box teal-box">
+        <div class="stat-num teal" id="stat-canon">--</div>
+        <div class="stat-label">CANON EPS</div>
+      </div>
+      <div class="stat-box yellow-box">
+        <div class="stat-num yellow" id="stat-percent">--%</div>
+        <div class="stat-label">FILLER %</div>
+      </div>
+    </div>
+
+    <!-- FILLER EPISODES LIST -->
+    <div class="section-header" style="padding: 0 24px;">
+      <h2>Filler Episodes</h2>
+      <div class="dash-line"></div>
+    </div>
+
+    <div class="filler-eps-wrap" id="filler-eps-wrap">
+      <!-- injected by JS -->
+    </div>
+
+    <!-- CANON ADVICE -->
+    <div class="canon-advice" id="canon-advice"></div>
+
+  </section>
+
+  <!-- TICKER -->
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner" id="filler-ticker">
+    <span>// loading filler stats...</span>
+  </div>
+</div>
+
+  <!-- BOTTOM NAV -->
+  <div class="bottom-nav">
+    <a href="index.html" class="bnav"><i class="ti ti-home"></i>home</a>
+    <a href="yearwise.html" class="bnav"><i class="ti ti-calendar"></i>years</a>
+    <a href="filler.html" class="bnav active"><i class="ti ti-list"></i>fillers</a>
+    <a href="genres.html" class="bnav"><i class="ti ti-adjustments"></i>mix</a>
+  </div>
+
+  <script src="js/filler.js"></script>
+</body>
+</html>

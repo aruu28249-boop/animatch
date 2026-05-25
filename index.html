@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AniMatch — Find Your Next Obsession</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">ANI<span class="r">MA</span>TCH</div>
+    <div class="nav-right">
+      <div class="live-badge">● LIVE</div>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="yearwise.html">Years</a>
+        <a href="filler.html">Fillers</a>
+        <a href="genres.html">Mix</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="eyebrow">// your anime oracle</div>
+      <h1>FIND YOUR<br><span class="red">NEXT</span><br><span class="outline">OBSESSION</span></h1>
+      <p>Pick a mood. Type a vibe. We'll find the anime that breaks you emotionally 💀</p>
+    </div>
+    <div class="hero-right">
+      <!-- ANIME OF THE DAY -->
+      <div class="aotd-card" id="aotd">
+        <div class="aotd-label">PICK OF THE DAY</div>
+        <div class="aotd-inner">
+          <img id="aotd-img" src="" alt="anime poster">
+          <div class="aotd-details">
+            <div class="aotd-score" id="aotd-score">--</div>
+            <div class="aotd-name" id="aotd-name">Loading...</div>
+            <div class="aotd-tags" id="aotd-tags"></div>
+          </div>
+        </div>
+      </div>
+      <!-- SEARCH -->
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="dark psychological with betrayal...">
+        <button onclick="handleSearch()">SEARCH →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOOD SELECTOR -->
+  <section class="mood-section">
+    <div class="section-header">
+      <h2>Mood Selector</h2>
+      <span class="count">08</span>
+      <div class="dash-line"></div>
+    </div>
+    <div class="mood-grid">
+      <div class="mood-btn" data-mood="hype" onclick="selectMood(this)">🔥 Hype</div>
+      <div class="mood-btn" data-mood="mindgames" onclick="selectMood(this)">🧠 Mind Games</div>
+      <div class="mood-btn" data-mood="dark" onclick="selectMood(this)">🌑 Dark</div>
+      <div class="mood-btn" data-mood="romantic" onclick="selectMood(this)">❤️ Romantic</div>
+      <div class="mood-btn" data-mood="happy" onclick="selectMood(this)">☀️ Happy</div>
+      <div class="mood-btn" data-mood="chill" onclick="selectMood(this)">🍃 Chill</div>
+      <div class="mood-btn" data-mood="motivated" onclick="selectMood(this)">🏃 Motivated</div>
+      <div class="mood-btn" data-mood="sad" onclick="selectMood(this)">💧 Sad</div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="results-section">
+    <div class="section-header">
+      <h2>Top Picks</h2>
+      <span class="filter-tag" id="active-mood-label">SELECT A MOOD</span>
+      <div class="dash-line"></div>
+    </div>
+    <div class="cards-grid" id="results-grid">
+      <!-- cards injected by JS -->
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-inner">
+      <span>● Jujutsu Kaisen S3 airing now</span>
+      <span>● One Piece ep 1122 released</span>
+      <span>● Demon Slayer movie announced</span>
+      <span>● Chainsaw Man S2 confirmed</span>
+      <span>● Blue Lock S2 ongoing</span>
+      <span>● Jujutsu Kaisen S3 airing now</span>
+      <span>● One Piece ep 1122 released</span>
+      <span>● Demon Slayer movie announced</span>
+      <span>● Chainsaw Man S2 confirmed</span>
+      <span>● Blue Lock S2 ongoing</span>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <div class="bottom-nav">
+    <a href="index.html" class="bnav active"><i class="ti ti-home"></i>home</a>
+    <a href="yearwise.html" class="bnav"><i class="ti ti-calendar"></i>years</a>
+    <a href="filler.html" class="bnav"><i class="ti ti-list"></i>fillers</a>
+    <a href="genres.html" class="bnav"><i class="ti ti-adjustments"></i>mix</a>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
