@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AniMatch — Best Anime By Year</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">ANI<span class="r">MA</span>TCH</div>
+    <div class="nav-right">
+      <div class="live-badge">● LIVE</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="yearwise.html" class="active">Years</a>
+        <a href="filler.html">Fillers</a>
+        <a href="genres.html">Mix</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="year-hero">
+    <div class="eyebrow">// anime through time</div>
+    <h1>BEST ANIME<br><span class="red">BY YEAR</span></h1>
+    <p>Pick any year from 1990 to 2026 — see the top anime that defined that era.</p>
+
+    <!-- YEAR SELECTOR -->
+    <div class="year-selector">
+      <button class="year-arrow" onclick="changeYear(-1)">←</button>
+      <div class="year-display" id="year-display">2024</div>
+      <button class="year-arrow" onclick="changeYear(1)">→</button>
+    </div>
+
+    <!-- QUICK YEAR JUMPS -->
+    <div class="quick-years">
+      <span class="quick-label">JUMP TO:</span>
+      <div class="quick-btn" onclick="jumpYear(1999)">1999</div>
+      <div class="quick-btn" onclick="jumpYear(2004)">2004</div>
+      <div class="quick-btn" onclick="jumpYear(2007)">2007</div>
+      <div class="quick-btn" onclick="jumpYear(2011)">2011</div>
+      <div class="quick-btn" onclick="jumpYear(2015)">2015</div>
+      <div class="quick-btn" onclick="jumpYear(2019)">2019</div>
+      <div class="quick-btn" onclick="jumpYear(2023)">2023</div>
+      <div class="quick-btn" onclick="jumpYear(2025)">2025</div>
+      <div class="quick-btn" onclick="jumpYear(2026)">2026</div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="year-results">
+    <div class="section-header">
+      <h2>Top Anime of</h2>
+      <span class="filter-tag" id="year-label">2024</span>
+      <div class="dash-line"></div>
+    </div>
+
+    <!-- TOP 3 PODIUM -->
+    <div class="podium" id="podium">
+      <!-- injected by JS -->
+    </div>
+
+    <!-- REST OF TOP 10 -->
+    <div class="section-header" style="margin-top: 28px;">
+      <h2>Full Top 10</h2>
+      <div class="dash-line"></div>
+    </div>
+    <div class="year-list" id="year-list">
+      <!-- injected by JS -->
+    </div>
+
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-inner" id="year-ticker">
+      <span>● 2023 — Oshi no Ko · Vinland Saga S2 · Mushoku Tensei S2</span>
+      <span>● 2019 — Vinland Saga · Dr Stone · Demon Slayer</span>
+      <span>● 2013 — Attack on Titan · Monogatari S2 · HxH</span>
+      <span>● 2011 — Madoka Magica · Steins Gate · HxH 2011</span>
+      <span>● 2009 — FMA Brotherhood · Fairy Tail · Darker than Black</span>
+      <span>● 2023 — Oshi no Ko · Vinland Saga S2 · Mushoku Tensei S2</span>
+      <span>● 2019 — Vinland Saga · Dr Stone · Demon Slayer</span>
+      <span>● 2013 — Attack on Titan · Monogatari S2 · HxH</span>
+      <span>● 2011 — Madoka Magica · Steins Gate · HxH 2011</span>
+      <span>● 2009 — FMA Brotherhood · Fairy Tail · Darker than Black</span>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <div class="bottom-nav">
+    <a href="index.html" class="bnav"><i class="ti ti-home"></i>home</a>
+    <a href="yearwise.html" class="bnav active"><i class="ti ti-calendar"></i>years</a>
+    <a href="filler.html" class="bnav"><i class="ti ti-list"></i>fillers</a>
+    <a href="genres.html" class="bnav"><i class="ti ti-adjustments"></i>mix</a>
+  </div>
+
+  <script src="js/yearwise.js"></script>
+</body>
+</html>
