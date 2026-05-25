@@ -1,13 +1,13 @@
 // ── MOOD TO GENRE MAPPING ──
 const moodMap = {
-  hype:      { genres: [1, 17], label: "HYPE MODE" },
-  mindgames: { genres: [7, 37], label: "MIND GAMES" },
-  dark:      { genres: [7, 14], label: "DARK MODE" },
-  romantic:  { genres: [22],    label: "ROMANTIC" },
-  happy:     { genres: [4, 36], label: "HAPPY VIBES" },
-  chill:     { genres: [36, 22],label: "CHILL MODE" },
-  motivated: { genres: [29, 1], label: "MOTIVATED" },
-  sad:       { genres: [8, 22], label: "SAD HOURS" },
+  hype:      { genres: [1],  label: "HYPE MODE" },
+  mindgames: { genres: [40], label: "MIND GAMES" },
+  dark:      { genres: [14], label: "DARK MODE" },
+  romantic:  { genres: [22], label: "ROMANTIC" },
+  happy:     { genres: [4],  label: "HAPPY VIBES" },
+  chill:     { genres: [36], label: "CHILL MODE" },
+  motivated: { genres: [30], label: "MOTIVATED" },
+  sad:       { genres: [8],  label: "SAD HOURS" },
 };
 
 // keyword to mood mapping for search
