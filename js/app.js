@@ -43,7 +43,6 @@ async function loadAnimeOfTheDay() {
     const data = await res.json();
     const list = data.data;
 
-    // pick one based on today's date so it changes daily
     const index = new Date().getDate() % list.length;
     const anime = list[index];
 
@@ -68,7 +67,6 @@ async function loadAnimeOfTheDay() {
 
 // ── SELECT MOOD ──
 function selectMood(btn) {
-  // remove active from all
   document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
 
@@ -76,7 +74,7 @@ function selectMood(btn) {
   fetchByMood(mood);
 }
 
-// ── FETCH BY MOOD ──
+// ── FETCH BY MOOD ── (fixed: uses /anime not /top/anime)
 async function fetchByMood(mood) {
   const { genres, label } = moodMap[mood];
   document.getElementById('active-mood-label').textContent = label;
@@ -86,7 +84,7 @@ async function fetchByMood(mood) {
 
   try {
     const genreParam = genres.join(',');
-    const res  = await fetch(`https://api.jikan.moe/v4/top/anime?genres=${genreParam}&limit=5`);
+    const res  = await fetch(`https://api.jikan.moe/v4/anime?genres=${genreParam}&order_by=score&sort=desc&limit=5&sfw=true`);
     const data = await res.json();
     renderCards(data.data);
   } catch (err) {
@@ -101,7 +99,6 @@ function handleSearch() {
 
   if (!input) return;
 
-  // keyword matching
   let matchedMood = null;
   for (const [keyword, mood] of Object.entries(keywordMap)) {
     if (input.includes(keyword)) {
@@ -111,13 +108,11 @@ function handleSearch() {
   }
 
   if (matchedMood) {
-    // highlight matched mood button
     document.querySelectorAll('.mood-btn').forEach(b => {
       b.classList.toggle('active', b.dataset.mood === matchedMood);
     });
     fetchByMood(matchedMood);
   } else {
-    // fallback — search by title directly
     fetchByTitle(input);
   }
 }
@@ -165,7 +160,7 @@ function renderCards(animeList) {
   });
 }
 
-// also trigger search on Enter key
+// trigger search on Enter key
 document.getElementById('search-input').addEventListener('keydown', e => {
   if (e.key === 'Enter') handleSearch();
 });
