@@ -1,0 +1,27 @@
+.filler-hero { padding: 40px 24px 32px; max-width: 600px; }
+.filler-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: 72px; line-height: 0.9; letter-spacing: 2px; color: #fff; margin-bottom: 16px; }
+.filler-search { max-width: 500px; margin-top: 20px; }
+.quick-picks { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.quick-label { font-family: 'Space Mono', monospace; font-size: 10px; color: #444; letter-spacing: 1px; }
+.quick-btn { padding: 5px 12px; border: 1px solid #1e1e28; border-radius: 4px; background: #0f0f14; font-size: 12px; color: #666; cursor: pointer; font-family: 'Rajdhani', sans-serif; font-weight: 600; transition: all 0.1s; }
+.quick-btn:hover { border-color: #ff003c; color: #ff003c; }
+.filler-results { padding: 0 24px 32px; }
+.anime-info-bar { display: flex; align-items: center; gap: 16px; background: #0f0f14; border: 1px solid #1e1e28; border-radius: 10px; overflow: hidden; margin-bottom: 20px; }
+.anime-info-bar img { width: 70px; height: 100px; object-fit: cover; flex-shrink: 0; }
+.anime-info-text { padding: 14px 16px; }
+.anime-info-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; color: #fff; margin-bottom: 4px; }
+.anime-info-meta { font-size: 12px; color: #666; font-family: 'Space Mono', monospace; }
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 28px; }
+.stat-box { background: #0f0f14; border: 1px solid #1e1e28; border-radius: 8px; padding: 16px 14px; text-align: center; }
+.red-box    { border-color: #ff003c33; background: #1a0008; }
+.teal-box   { border-color: #00f5d433; background: #001a18; }
+.yellow-box { border-color: #ffd60a33; background: #1a1400; }
+.stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: #fff; line-height: 1; margin-bottom: 4px; }
+.stat-num.red    { color: #ff003c; }
+.stat-num.teal   { color: #00f5d4; }
+.stat-num.yellow { color: #ffd60a; }
+.stat-label { font-family: 'Space Mono', monospace; font-size: 9px; color: #555; letter-spacing: 1px; }
+.filler-eps-wrap { padding: 16px 0 24px; display: flex; flex-wrap: wrap; gap: 6px; }
+.ep-chip  { padding: 4px 10px; border-radius: 4px; font-family: 'Space Mono', monospace; font-size: 11px; border: 1px solid #2a0010; background: #1a0008; color: #ff003c; }
+.ep-range { padding: 4px 12px; border-radius: 4px; font-family: 'Space Mono', monospace; font-size: 11px; border: 1px solid #2a0010; background: #1a0008; color: #ff6b6b; }
+.canon-advice { background: #001a18; border: 1px solid #00f5d433; border-radius: 8px; padding: 14px 18px; font-size: 13px; color: #00f5d4; font-family: 'Space Mono', monospace; line-height: 1.7; margin-top: 8px; }
