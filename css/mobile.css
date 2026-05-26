@@ -1,0 +1,41 @@
+@media (max-width: 860px) {
+  .selector-grid { grid-template-columns: 1fr; }
+  .mix-column    { flex-direction: row; padding-top: 0; justify-content: center; }
+  .mix-connector { display: none; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { gap: 10px; }
+  .nav-links a { font-size: 10px; padding: 4px 8px; letter-spacing: 0; }
+  .live-badge { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 20px 16px; }
+  .hero-left h1 { font-size: 48px; }
+  .hero-left p { max-width: 100%; }
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .card:nth-child(2), .card:nth-child(4) { transform: none; }
+  .card:nth-child(2):hover, .card:nth-child(4):hover { transform: translateY(-3px); }
+  .mood-section, .results-section { padding: 0 16px 24px; }
+  .filler-hero { padding: 24px 16px; }
+  .filler-hero h1 { font-size: 48px; }
+  .filler-results { padding: 0 16px 24px; }
+  .filler-search { max-width: 100%; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .year-hero { padding: 24px 16px; }
+  .year-hero h1 { font-size: 48px; }
+  .year-display { font-size: 56px; min-width: 120px; }
+  .year-results { padding: 0 16px 24px; }
+  .podium { grid-template-columns: 1fr; }
+  .podium-card.rank-1 { transform: none; }
+  .podium-card img { height: 200px; }
+  .page-header { padding: 24px 16px; }
+  .page-header h1 { font-size: 48px; }
+  .main-container { padding: 0 16px 60px; }
+  .section-header h2 { font-size: 18px; }
+  .quick-years { gap: 6px; }
+  .quick-btn { font-size: 11px; padding: 4px 10px; }
+}
+
+@media (max-width: 560px) {
+  .anime-card:nth-child(3n+2),
+  .anime-card:nth-child(5n+4) { margin-top: 0; }
+}

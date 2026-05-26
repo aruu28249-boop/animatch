@@ -1,0 +1,60 @@
+:root {
+  --bg:     #08080a;
+  --bg2:    #0f0f14;
+  --bg3:    #0a0a0e;
+  --red:    #ff003c;
+  --teal:   #00f5d4;
+  --yellow: #ffd60a;
+  --white:  #f0f0f0;
+  --muted:  #888;
+  --border: #1e1e28;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #08080a;
+  color: #f0f0f0;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+@keyframes blink  { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+@keyframes spin   { to { transform: rotate(360deg); } }
+@keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes ticker { from { transform: translateX(100vw); } to { transform: translateX(-100%); } }
+@keyframes cardIn { from { opacity:0; transform: translateY(18px) scale(0.96); } to { opacity:1; transform: translateY(0) scale(1); } }
+/* ── GLOBAL TEXT VISIBILITY ── */
+.nav-links a        { color: #888; }
+.quick-label        { color: #777; }
+.quick-btn          { color: #999; }
+.stat-label         { color: #777; }
+.card-ep            { color: #666; }
+.list-meta          { color: #666; }
+.podium-eps         { color: #666; }
+.anime-info-meta    { color: #777; }
+.year-loading       { color: #666; }
+.loading            { color: #666; }
+.eyebrow            { color: #ff003c; }
+.hero-left p        { color: #999; }
+.ticker-inner span  { color: #666; }
+.genre-tag          { color: #bbb; border-color: #333; }
+.genre-selected-display.empty { color: #aaa; }
+.section-label      { color: #777; }
+.preset-chip        { color: #ddd; }
+.preset-chip .combo-genres { color: #777; }
+.card-meta          { color: #777; }
+.card-genre-tag     { color: #777; }
+.welcome-state p    { color: #999; }
+.page-header-sub    { color: #999; }
+.mix-connector      { color: #666; }
+.btn-clear          { color: #777; }
+.results-combo-label .sep { color: #666; }
+/* ── PLACEHOLDER & TICKER VISIBILITY ── */
+.search-bar input::placeholder { color: #777; }
+.ticker-inner span  { color: #888; }
+.ticker-inner span b { color: #ff003c; }
+.ticker-content     { color: #000; }
+
+/* Filler & Year search placeholders */
+input::placeholder  { color: #777; }
+textarea::placeholder { color: #777; }

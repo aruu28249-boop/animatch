@@ -1,0 +1,59 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  border-bottom: 1px solid #1a1a20;
+  position: sticky;
+  top: 0;
+  background: #08080a;
+  z-index: 100;
+}
+
+.logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+  letter-spacing: 4px;
+  color: #fff;
+}
+.logo .r { color: #00f5d4; }
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 4px;
+  color: #ff003c;
+  text-decoration: none;
+}
+.nav-logo span { color: #00f5d4; }
+
+.nav-right { display: flex; align-items: center; gap: 20px; }
+
+.live-badge {
+  font-size: 10px;
+  font-family: 'Space Mono', monospace;
+  color: #00f5d4;
+  border: 1px solid #00f5d4;
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  animation: blink 2s infinite;
+}
+
+.nav-links { display: flex; gap: 20px; }
+.nav-links a {
+  font-size: 12px;
+  color: #666;
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.nav-links a:hover,
+.nav-links a.active { color: #fff; }
+
+.bottom-nav { display: flex; border-top: 1px solid #1a1a20; background: #050508; position: sticky; bottom: 0; }
+.bnav { flex: 1; padding: 13px 0; text-align: center; font-size: 10px; color: #444; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 4px; font-family: 'Space Mono', monospace; letter-spacing: 0.5px; transition: color 0.15s; }
+.bnav i { font-size: 18px; }
+.bnav:hover { color: #888; }
+.bnav.active { color: #ff003c; }
