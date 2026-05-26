@@ -1195,3 +1195,44 @@ nav {
   .quick-years { gap: 6px; }
   .quick-btn { font-size: 11px; padding: 4px 10px; }
 }
+/* ── GENRE MIXER FIXES ── */
+
+/* Fix text visibility */
+.page-header-sub       { color: #aaa; }
+.genre-selected-display.empty { color: #666; font-size: 1.6rem; }
+.genre-tag             { color: #888; border-color: #2a2a38; }
+.genre-tag:hover       { color: #fff; border-color: #fff; }
+.section-label         { color: #666; }
+.preset-chip           { color: #ccc; }
+.preset-chip .combo-genres { color: #555; }
+.welcome-state p       { color: #777; }
+.mix-connector         { color: #444; }
+.btn-clear             { color: #555; border-color: #2a2a38; }
+
+/* Fix layout — panels side by side */
+.selector-grid {
+  display: grid;
+  grid-template-columns: 1fr 120px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.genre-panel {
+  background: #0f0f14;
+  border: 1px solid #1e1e28;
+  padding: 20px;
+  min-width: 0;
+}
+
+.mix-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 60px;
+  gap: 12px;
+}
+
+/* Fix page header overflow */
+.page-header { padding: 40px 24px 32px; overflow: hidden; }
+.page-header h1 { font-size: clamp(2.5rem, 6vw, 5rem); }
