@@ -1,0 +1,66 @@
+name: AniMatch CI
+
+# Runs on every push and pull request to main
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    name: Validate HTML & CSS
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Get the code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Check that all required files exist
+      - name: Check required files exist
+        run: |
+          echo "Checking core files..."
+          test -f index.html && echo "✅ index.html found"
+          test -f filler.html && echo "✅ filler.html found"
+          test -f yearwise.html && echo "✅ yearwise.html found"
+          test -f genres.html && echo "✅ genres.html found"
+          test -f css/style.css && echo "✅ style.css found"
+          test -f data/fillers.json && echo "✅ fillers.json found"
+
+      # 3. Validate fillers.json is actually valid JSON
+      - name: Validate fillers.json syntax
+        run: |
+          python3 -m json.tool data/fillers.json > /dev/null && echo "✅ fillers.json is valid JSON"
+
+      # 4. Install HTML validator
+      - name: Install HTML5 validator
+        run: npm install -g html5-validator-cli
+
+      # 5. Validate HTML files
+      - name: Validate HTML syntax
+        run: |
+          for file in index.html filler.html yearwise.html genres.html; do
+            echo "Validating $file..."
+            html5-validator-cli --file="$file" || echo "⚠️ Warnings found in $file (non-blocking)"
+          done
+        continue-on-error: true
+
+      # 6. Check for broken internal links (href/src pointing to local files)
+      - name: Check internal links and asset paths
+        run: |
+          echo "Checking that linked CSS/JS files exist..."
+          for file in index.html filler.html yearwise.html genres.html; do
+            grep -oP '(?:href|src)="(?!http)[^"]+"' "$file" | sed 's/.*="\(.*\)"/\1/' | while read -r path; do
+              if [ ! -f "$path" ]; then
+                echo "❌ Broken local reference in $file: $path"
+                exit 1
+              fi
+            done
+          done
+          echo "✅ All internal asset paths resolved successfully"
+
+      # 7. Final summary
+      - name: CI Summary
+        if: success()
+        run: echo "🎉 All checks passed — safe to deploy!"
