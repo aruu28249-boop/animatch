@@ -33,7 +33,7 @@ jobs:
         run: |
           python3 -m json.tool data/fillers.json > /dev/null && echo "✅ fillers.json is valid JSON"
 
-      # 4. Validate HTML syntax using W3C validator (via Java tool, official)
+      # 4. Validate HTML syntax using W3C validator
       - name: Validate HTML syntax
         uses: Cyb3r-Jak3/html5validator-action@v7.2.0
         with:
@@ -42,11 +42,18 @@ jobs:
         continue-on-error: true
 
       # 5. Check for broken internal links (href/src pointing to local files)
+      #    Skips Vercel-generated runtime routes (e.g. /_vercel/insights/script.js)
+      #    since those don't exist as real files in the repo — Vercel serves them at deploy time.
       - name: Check internal links and asset paths
         run: |
           echo "Checking that linked CSS/JS files exist..."
           for file in index.html filler.html yearwise.html genres.html; do
             grep -oP '(?:href|src)="(?!http)[^"]+"' "$file" | sed 's/.*="\(.*\)"/\1/' | while read -r path; do
+              # Skip Vercel runtime-injected routes
+              if [[ "$path" == /_vercel/* ]]; then
+                echo "⏭️  Skipping Vercel runtime route: $path"
+                continue
+              fi
               if [ ! -f "$path" ]; then
                 echo "❌ Broken local reference in $file: $path"
                 exit 1
