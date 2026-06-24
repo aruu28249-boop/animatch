@@ -33,20 +33,15 @@ jobs:
         run: |
           python3 -m json.tool data/fillers.json > /dev/null && echo "✅ fillers.json is valid JSON"
 
-      # 4. Install HTML validator
-      - name: Install HTML5 validator
-        run: npm install -g html5-validator-cli
-
-      # 5. Validate HTML files
+      # 4. Validate HTML syntax using W3C validator (via Java tool, official)
       - name: Validate HTML syntax
-        run: |
-          for file in index.html filler.html yearwise.html genres.html; do
-            echo "Validating $file..."
-            html5-validator-cli --file="$file" || echo "⚠️ Warnings found in $file (non-blocking)"
-          done
+        uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+        with:
+          root: .
+          extra: --ignore-re ".*manifest.*"
         continue-on-error: true
 
-      # 6. Check for broken internal links (href/src pointing to local files)
+      # 5. Check for broken internal links (href/src pointing to local files)
       - name: Check internal links and asset paths
         run: |
           echo "Checking that linked CSS/JS files exist..."
@@ -60,7 +55,7 @@ jobs:
           done
           echo "✅ All internal asset paths resolved successfully"
 
-      # 7. Final summary
+      # 6. Final summary
       - name: CI Summary
         if: success()
         run: echo "🎉 All checks passed — safe to deploy!"
